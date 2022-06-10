@@ -1,14 +1,18 @@
-li = [[3, 4], [1, -2, -4]]
+def R(n):
+    s = 0
+    i = n
+    d = n
+    while i != 0:
+        s += 1
+        i //= 10
+    s -= 1
+    if s == 0:
+        res = str(n)
 
+        return res
+    else:
+        d %= 10
+        res = str(d) + R(n // 10)
 
-
-def sum1(lst):
-    t = 0
-    for elem in lst:
-        if isinstance(elem, list):
-            t += sum1(elem)
-        else:
-            if elem < 0:
-                t += 1
-    return t
-print("Сумма элементов равна:", sum1(li))
+        return res
+print(R(20))
