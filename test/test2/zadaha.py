@@ -1,18 +1,9 @@
-def R(n):
-    s = 0
-    i = n
-    d = n
-    while i != 0:
-        s += 1
-        i //= 10
-    s -= 1
-    if s == 0:
-        res = str(n)
 
+def Ten(n):
+    if n > 1:
+        res = Ten(n // 2) + str(n % 2)
         return res
     else:
-        d %= 10
-        res = str(d) + R(n // 10)
+        return '1'
 
-        return res
-print(R(20))
+print("Двоичное число", Ten(13))
